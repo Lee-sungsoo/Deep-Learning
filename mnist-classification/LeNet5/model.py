@@ -40,9 +40,35 @@ class LeNet5(nn.Module): # number of paramters: 61,706
         output = self.fc3(x)
 
         return output
+    
+class LeNet5WithDropout(nn.Module):
+    def __init__(self):
+        super(LeNet5WithDropout, self).__init__()
+        self.conv1 = nn.Conv2d(1, 6, 5)
+        self.relu1 = nn.ReLU()
+        self.pool1 = nn.MaxPool2d(2)
+        self.conv2 = nn.Conv2d(6, 16, 5)
+        self.relu2 = nn.ReLU()
+        self.pool2 = nn.MaxPool2d(2)
+        self.fc1 = nn.Linear(16 * 5 * 5, 120)
+        self.relu3 = nn.ReLU()
+        self.dropout1 = nn.Dropout(p=0.5)  # Dropout 적용
+        self.fc2 = nn.Linear(120, 84)
+        self.relu4 = nn.ReLU()
+        self.dropout2 = nn.Dropout(p=0.5)  # Dropout 적용
+        self.fc3 = nn.Linear(84, 10)
+
+    def forward(self, x):
+        x = self.pool1(self.relu1(self.conv1(x)))
+        x = self.pool2(self.relu2(self.conv2(x)))
+        x = x.view(-1, 16 * 5 * 5)
+        x = self.dropout1(self.relu3(self.fc1(x)))  # Dropout 적용
+        x = self.dropout2(self.relu4(self.fc2(x)))  # Dropout 적용
+        x = self.fc3(x)
+        return x
 
 
-class CustomMLP(nn.Module): # number of paramters: 66,250
+class CustomMLP(nn.Module): # number of paramters: 61,364
     """ Your custom MLP model
 
         - Note that the number of model parameters should be about the same
@@ -67,3 +93,5 @@ class CustomMLP(nn.Module): # number of paramters: 66,250
         output = self.fc3(x)
         
         return output
+    
+
