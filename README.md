@@ -53,7 +53,7 @@ LeNet-5 with Regularization 모델은 기본 LeNet-5 모델과 동일한 아키�
 | Custom MLP |      99.47%       |    97.90%     |
 
 ### Evaluation Plot
-![Evaluation Plot](./Deep-Learning/evaluation_plot.png)
+![Evaluation Plot](./evaluation_plot.png)
 
 ## Conclusion
 - 본 프로젝트에서는 MNIST 데이터셋 분류를 위해 LeNet-5, LeNet-5 with Regularization, Custom MLP의 세 가지 신경망 아키텍처를 구현하고 비교하였습니다.
