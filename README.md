@@ -36,7 +36,7 @@ Custom MLP 모델은 한 개의 은닉층을 가진 단순한 피드포워드 �
 - FC3: 29 input features, 10 output features
   
 - 59,392 + 1,682 + 290 = 61,364
-- Custom MLP 모델의 총 파라미터 수는 61,393개입니다.
+- Custom MLP 모델의 총 파라미터 수는 61,394개입니다.
 
 ### LeNet-5 with Regularization
 LeNet-5 with Regularization은 기본 LeNet-5 모델에 Regularization 기법을 적용한 버전입니다. 이 모델에는 다음과 같은 Regularization 기법이 적용되었습니다:
